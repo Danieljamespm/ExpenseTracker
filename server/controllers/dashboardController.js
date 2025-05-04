@@ -42,7 +42,7 @@ exports.getDashboardData = async(req, res) => {
             userId,
             date: {$gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)},
         }). sort({date: -1})
-        console.log('last30day transactions', last30DaysExpenseTransactions)
+        
         
         
 
