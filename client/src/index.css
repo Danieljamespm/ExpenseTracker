@@ -10,13 +10,19 @@
 }
 
 @layer base {
+    *{
+        box-sizing: border-box;
+    }
     html {
-        font-family: var(--font-display)
+        font-family: var(--font-display);
+        overflow-x:hidden;
+        width:100%;
     }
 
     body {
         background-color: #043f82;
         overflow-x: hidden;
+        width:100%;
     }
 
     @media (prefers-color-scheme: dark) {
