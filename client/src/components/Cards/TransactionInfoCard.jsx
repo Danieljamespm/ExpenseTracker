@@ -18,7 +18,12 @@ const TransactionInfoCard = ({title, icon, date, amount, type, hideDeleteBtn, on
             </div>
             <div className='flex items-center gap-2'>
                 {!hideDeleteBtn && (
-                    <button className='text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transistion-opactiy cursor-pointer' onClick={(e) => {e.stopPropagation(), onDelete()}}><LuTrash2 size={18}/></button>
+                    <button className='text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transistion-opactiy cursor-pointer' onClick={(e) => {
+                        e.stopPropagation();
+                         onDelete();
+                    }}
+                    >
+                        <LuTrash2 size={18} className='text-white'/></button>
                 )}
                 <div className={`flex items-center gap-2 px-3 py-1.5 rounded-md ${getAmountStyles()}`}>
                     <h6 className='text-xs font-medium'>{type === 'income' ? '+' : '-'} ${amount}</h6>

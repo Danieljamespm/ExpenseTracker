@@ -80,8 +80,8 @@ const SignUp = () => {
   return (
     <AuthLayout>
         <div className='lg:w-[100%] h-auto md:h-full mt-10 flex flex-col justify-center'>
-          <h3 className='text-xl font-semibold text-black'>Create an Account</h3>
-          <p className='text-xs text-slate-700mt-[5px] mb-6'>Enter your details below.</p>
+          <h3 className='text-xl font-semibold text-white'>Create an Account</h3>
+          <p className='text-xs text-slate-400 mt-[5px] mb-6'>Enter your details below.</p>
 
           <form onSubmit={handleSignUp}>
 
@@ -118,9 +118,9 @@ const SignUp = () => {
 
           <button type='submit' className='btn-primary'>SIGN UP</button>
 
-          <p className='text-[13px] text-slate-800 mt-3'>
+          <p className='text-[13px] text-slate-400 mt-3'>
             Alerady have an account?{' '}
-            <Link className='font-medium text-primary underline' to='/login'>
+            <Link className='font-medium text-white underline' to='/login'>
               Login
             </Link>
           </p>
