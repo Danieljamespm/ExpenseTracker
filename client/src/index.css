@@ -16,13 +16,13 @@
     html {
         font-family: var(--font-display);
         overflow-x:hidden;
-        width:100%;
+       max-width:100vw;
     }
 
     body {
         background-color: #043f82;
         overflow-x: hidden;
-        width:100%;
+        max-width:100vw;
     }
 
     @media (prefers-color-scheme: dark) {

@@ -13,7 +13,7 @@ import {Toaster} from 'react-hot-toast'
 function App() {
   return (
     <UserProvider>
-    <div>
+    <div className='min-h-screen w-full overflow-x-hidden'>
       {/* Routes for all the web app pages */}
       <Router>
         <Routes>
