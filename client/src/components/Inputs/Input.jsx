@@ -8,7 +8,7 @@ const Input = ({value, onChange, placeholder, label, type}) => {
     setShowPassword(!showPassword)
   }
     return (
-    <div>
+    <div className='w-full'>
         <label className='text-[13px] text-slate-800 dark:text-white'>{label}</label>
 
         <div className='input-box'>

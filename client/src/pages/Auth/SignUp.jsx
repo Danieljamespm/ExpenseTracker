@@ -79,7 +79,7 @@ const SignUp = () => {
 
   return (
     <AuthLayout>
-        <div className='lg:w-[100%] h-auto md:h-full mt-10 flex flex-col justify-center'>
+        <div className='lg:w-[100%]  mt-10 flex flex-col justify-center'>
           <h3 className='text-xl font-semibold text-white'>Create an Account</h3>
           <p className='text-xs text-slate-400 mt-[5px] mb-6'>Enter your details below.</p>
 
@@ -87,32 +87,42 @@ const SignUp = () => {
 
             <ProfilePhotoSelector image = {profilePic} setImage={setProfilePic} />
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          
+            <div className='flex flex-col gap-4'>
+              <div className='md:flex gap-4'>
               <Input 
+              classname="w-full"
               value={fullName}
               onChange={({target}) => setFullName(target.value)}
               label='Full Name'
               placeholder='John'
               type='text'
+              style={{fontSize: '16px'}}
               />
 
                <Input 
+              classname="w-full" 
           value={email}
           onChange={({target}) => setEmail(target.value)}
           label='Email Address'
           placeholder='john@example.com'
           type='text'
+          style={{fontSize: '16px'}}
           />
-          <div className='col-span-2'>
+          </div>
+          <div className='w-full mt-2 md:flex-2'>
             <Input 
+            
           value={password}
           onChange={({target}) => setPassword(target.value)}
           label='Password'
           placeholder='Min 8 Characters'
           type='password'
+          style={{fontSize: '16px'}}
           />
           </div>
             </div>
+            
 
           {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
 

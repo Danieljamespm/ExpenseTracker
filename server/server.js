@@ -34,11 +34,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 
 
-app.use(express.static(path.join(__dirname, "dist")))
-app.get('/{*splat}', (req, res, next) => {
-    if(req.originalUrl.startsWith('/api')) return next()
-    res.sendFile(path.join(__dirname, 'dist/index.html'))
-})
+// app.use(express.static(path.join(__dirname, "dist")))
+// app.get('/{*splat}', (req, res, next) => {
+//     if(req.originalUrl.startsWith('/api')) return next()
+//     res.sendFile(path.join(__dirname, 'dist/index.html'))
+// })
 
 
 const PORT = process.env.PORT || 5000
