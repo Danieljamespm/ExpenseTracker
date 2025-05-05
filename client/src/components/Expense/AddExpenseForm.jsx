@@ -21,7 +21,12 @@ const AddExpenseForm = ({ onAddExpense }) => {
 
         <Input 
             value={income.category}
-            onChange={({target}) => handleChange('category', target.value)}
+            onChange={({target}) => {
+                const value = target.value.trim()
+                const formatted=
+                value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+                handleChange('category', formatted)
+            }}
             label='Category'
             placeholder='Gas, Groceries, Dining Out etc'
             type='text'

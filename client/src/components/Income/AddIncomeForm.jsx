@@ -21,7 +21,12 @@ const AddIncomeForm = ({onAddIncome}) => {
 
         <Input 
             value={income.source}
-            onChange={({target}) => handleChange('source', target.value)}
+            onChange={({target}) => {
+                const value = target.value.trim()
+                const formatted=
+                value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+                handleChange('source', formatted)
+            }}
             label='Income Source'
             placeholder="Salary, Sidehustle, Found $20 etc"
             type='text'

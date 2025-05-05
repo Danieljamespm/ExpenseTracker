@@ -10,7 +10,11 @@ const EditTransactionForm = ({transaction, onChange, onCancel, onSave}) => {
     <div>
         <Input 
         value={transaction.category}
-        onChange={(e) => handleInput('category', e.target.value)}
+        onChange={(e) => {
+          const value = e.target.value.trim();
+          const formatted = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+          handleInput('category', formatted);
+        }}
         label='Category'
         placeholder=''
         className=''

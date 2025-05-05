@@ -11,7 +11,11 @@ const EditInputForm = ({transaction, onChange, onCancel, onSave}) => {
     <div>
         <Input 
         value={transaction.source}
-        onChange={(e) => handleInput('source', e.target.value)}
+        onChange={(e) => {
+          const value = e.target.value.trim();
+          const formatted = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+          handleInput('source', formatted);
+        }}
         label='Source'
         placeholder=''
         className=''
