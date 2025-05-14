@@ -12,7 +12,10 @@ const EditTransactionForm = ({transaction, onChange, onCancel, onSave}) => {
         value={transaction.category}
         onChange={(e) => {
           const value = e.target.value.trim();
-          const formatted = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+          const formatted= value
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ')
           handleInput('category', formatted);
         }}
         label='Category'

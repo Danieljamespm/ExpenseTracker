@@ -23,8 +23,10 @@ const AddExpenseForm = ({ onAddExpense }) => {
             value={income.category}
             onChange={({target}) => {
                 const value = target.value.trim()
-                const formatted=
-                value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+                const formatted= value
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ')
                 handleChange('category', formatted)
             }}
             label='Category'
