@@ -37,7 +37,7 @@ const CustomPieChart = ({ data, label, totalAmount, colors, showTextAnchor }) =>
       {showTextAnchor && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none z-0">
           <div className="text-sm text-white">{label}</div>
-          <div className="text-xl font-semibold text-white">{totalAmount}</div>
+          <div className="text-xl font-semibold text-white">{totalAmount.toFixed(2)}</div>
         </div>
       )}
     </div>
