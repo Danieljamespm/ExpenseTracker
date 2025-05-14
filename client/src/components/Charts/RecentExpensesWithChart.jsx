@@ -17,7 +17,7 @@ const RecentExpensesWithChart = ({data, totalExpenses}) => {
     
         return Object.entries(grouped).map(([category, total]) => ({
           name: category,
-          amount: Number(total,tofixed(2)),
+          amount: Number(total,toFixed(2)),
         }))
       }
     
