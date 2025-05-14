@@ -69,20 +69,18 @@ exports.getDashboardData = async(req, res) => {
 
         //Final response
         res.json({
-            totalBalance:
-            (totalIncome[0]?.total || 0) - (totalExpense[0]?.total || 0),
-            totalIncome: totalIncome[0]?.total || 0,
-            totalExpenses: totalExpense[0]?.total || 0,
+            totalBalance: Number(((totalIncome[0]?.total || 0) - (totalExpense[0]?.total || 0)).toFixed(2)),
+            totalIncome: Number((totalIncome[0]?.total || 0).toFixed(2)),
+            totalExpenses: Number((totalExpense[0]?.total || 0).toFixed(2)),
             last30DaysExpenses: {
-                total: expensesLast30Days,
+                total: Number(expensesLast30Days.toFixed(2)),
                 transactions: last30DaysExpenseTransactions,
             },
             last60DaysIncome: {
-                total: incomeLast60Days,
+                total: Number(incomeLast60Days.toFixed(2)),
                 transactions: last60DaysIncomeTransactions,
             },
             recentTransactions: lastTransactions,
-
         })
 
     } catch (error) {
