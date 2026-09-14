@@ -12,27 +12,28 @@ const app = express()
 
 // Middleware
 
-const allowedOrigins = [
-    process.env.CLIENT_URL,
-    'https://xpenz-tracker.netlify.app',
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'http://localhost:5175',
-]
+const corsOptions = {
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            'https://xpenz-tracker.netlify.app',
+            'http://localhost:5173',
+            'http://localhost:5174',
+            'http://localhost:5175',
+        ]
 
-app.use(
-    cors({
-        origin: function (origin, callback) {
-            if (!origin || allowedOrigins.includes(origin)) {
-                callback(null, true)
-            } else {
-                callback(new Error('Not allowed by CORS'))
-            }
-        },
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
-    })
-)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}
+
+app.use(cors(corsOptions))
+
+app.options('/{*splat}', cors(corsOptions))
 
 app.use(express.json())
 
