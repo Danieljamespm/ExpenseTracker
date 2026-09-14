@@ -14,6 +14,7 @@ const app = express()
 
 const allowedOrigins = [
     process.env.CLIENT_URL,
+    'https://xpenz-tracker.netlify.app',
     'http://localhost:5173',
     'http://localhost:5174',
     'http://localhost:5175',
@@ -28,7 +29,7 @@ app.use(
                 callback(new Error('Not allowed by CORS'))
             }
         },
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization'],
     })
 )
