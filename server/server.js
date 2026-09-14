@@ -9,11 +9,13 @@ const expenseRoutes = require('./routes/expenseRoutes')
 const dashboardRoutes = require('./routes/dashboardRoutes')
 
 const app = express()
+console.log('CORS VERSION: NETLIFY FIX ACTIVE')
 
 // Middleware
 
 const corsOptions = {
     origin: function (origin, callback) {
+        console.log('INCOMING ORIGIN:', origin)
         const allowedOrigins = [
             'https://xpenz-tracker.netlify.app',
             'http://localhost:5173',
