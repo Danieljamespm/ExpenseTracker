@@ -1,11 +1,11 @@
 
-export const BASE_URL = "https://expensetracker-mtu9.onrender.com"
+export const BASE_URL = import.meta.env.VITE_API_URL
 
 
 //utils/apiPaths.js
 export const API_PATHS = {
     AUTH: {
-        LOGIN:'/api/v1/auth/login',
+        LOGIN: '/api/v1/auth/login',
         REGISTER: '/api/v1/auth/register',
         GET_USER_INFO: '/api/v1/auth/getUser',
     },
@@ -28,6 +28,6 @@ export const API_PATHS = {
         DOWNLOAD_EXPENSE: `/api/v1/expense/downloadexcel`,
     },
     IMAGE: {
-        UPLOAD_IMAGE:'/api/v1/auth/upload-image',
+        UPLOAD_IMAGE: '/api/v1/auth/upload-image',
     },
 }

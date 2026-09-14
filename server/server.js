@@ -12,9 +12,22 @@ const app = express()
 
 // Middleware
 
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:5175',
+]
+
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || '*',
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true)
+            } else {
+                callback(new Error('Not allowed by CORS'))
+            }
+        },
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: ['Content-Type', 'Authorization'],
     })
@@ -36,7 +49,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.use(express.static(path.join(__dirname, "dist")))
 app.get('/{*splat}', (req, res, next) => {
-    if(req.originalUrl.startsWith('/api')) return next()
+    if (req.originalUrl.startsWith('/api')) return next()
     res.sendFile(path.join(__dirname, 'dist/index.html'))
 })
 
